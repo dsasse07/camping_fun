@@ -4,7 +4,7 @@
 <ol>
 
 <% @campers.each do |camper| %>
-<li><strong>Name:</strong> <%= camper.name %>
+<li><strong>Name:</strong> <%= link_to camper.name, camper_path(camper) %>
 <ul><strong>Age: </strong><%= camper.age%></li>
 </ul>
 <br>
