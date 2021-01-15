@@ -6,6 +6,7 @@ class SignupsController < ApplicationController
     end
 
     def new
+      @signup = Signup.new
     end
 
     def create

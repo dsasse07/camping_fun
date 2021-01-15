@@ -4,7 +4,7 @@
 <ol>
 
 <% @activities.each do |activity| %>
-<li><strong>Name:</strong> <%= activity.name %> 
+<li><strong>Name:</strong> <%= link_to activity.name, activity_path(activity) %> 
 <ul><strong>Difficulty: </strong><%= activity.difficulty%></li>
 </ul>
 <br>
