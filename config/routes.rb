@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  resources :signups
   get '/campers', to: "campers#index", as: "campers"
+  get '/campers/new', to: 'campers#new', as: 'new_camper'
   get '/campers/:id', to: 'campers#show', as: 'camper'
+  post '/campers', to: 'campers#create'
+  
 
 
   get '/activities', to: "activities#index", as: "activities"
   get '/activities/:id', to: 'activities#show', as: 'activity'
+
 
   get '/signups/new', to: 'signups#new', as: 'new_signup'
   post '/signups', to: 'signups#create'

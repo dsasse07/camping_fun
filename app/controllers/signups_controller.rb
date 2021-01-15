@@ -10,6 +10,8 @@ class SignupsController < ApplicationController
     end
 
     def create
+      new_signup = Signup.create(signup_params(:activity_id, :camper_id, :time))
+      redirect_to camper_path(new_signup.camper_id)
     end
 
     def show
@@ -19,6 +21,7 @@ class SignupsController < ApplicationController
     end
 
     def update
+      new_signup = Signup.create(signup_params(:time))
     end
     
     def destroy
@@ -27,8 +30,8 @@ class SignupsController < ApplicationController
 
   private
 
-  def signup_params
-    params.require(:signup).permit(:activity, :camper, :time)
+  def signup_params(*args)
+    params.require(:signup).permit(*args)
   end
 
   def set_signup

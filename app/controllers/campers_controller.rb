@@ -6,9 +6,12 @@ class CampersController < ApplicationController
     end
 
     def new
+        @camper = Camper.new
     end
 
     def create
+        new_camper = Camper.create(camper_params(:name, :age))
+        redirect_to camper_path(new_camper)
     end
 
     def show
@@ -26,8 +29,8 @@ class CampersController < ApplicationController
 
     private
 
-    def camper_params
-        params.require(:camper).permit(:name, :age)
+    def camper_params(*args)
+        params.require(:camper).permit(*args)
     end
 
     def set_camper
